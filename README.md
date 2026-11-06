@@ -1,5 +1,33 @@
 # Лаборатория «Поймай мошенника»
 
+## Локальный MVP
+
+Из каталога репозитория с Python 3.14:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+DATA_DIR=../../work/hackathon/data
+python -m antifraud train --data-dir "$DATA_DIR" --model models/mvp-001
+python -m antifraud sandbox --model models/mvp-001 --output runtime/sandbox.json
+python -m unittest discover -v
+python -m antifraud serve --model models/mvp-001 --data-dir "$DATA_DIR"
+```
+
+Откройте [локальное приложение](http://127.0.0.1:8000/). Кнопка «Данные хакатона» использует каталог, указанный в `--data-dir`. Через форму можно загрузить собственные `clients.csv`, `transactions_history.csv` и `transactions_test.csv`. Если модель в `models/mvp-001` уже обучена и код признаков совпадает, начните с запуска песочницы или сервера. После изменения признаков обучите модель в новом каталоге.
+
+Пакетный анализ с тем же сценарием приложения:
+
+```bash
+python -m antifraud analyze --data-dir "$DATA_DIR" --model models/mvp-001 --output runtime/scored.csv
+```
+
+Порог по умолчанию выбран на сентябрьской валидации под лимит ложных тревог 0,5%. Интерфейс показывает влияние порога на число операций в очереди. Доля ложных тревог вычисляется отдельно на размеченной истории. Файл экспорта содержит оценку подозрительности, категорию и объяснение для каждой операции.
+
+[План и архитектура](docs/implementation-plan.md) · [Результаты проверки MVP](docs/research/mvp-validation.md)
+
+
 Три модели оценивают подозрительность операции. Скрипт сравнивает их на известных исторических метках по одному временному протоколу. Результаты первого прогона в [results.json](results.json).
 
 ## Запуск

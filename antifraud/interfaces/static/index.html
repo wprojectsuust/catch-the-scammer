@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Поймай мошенника · Антифрод</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script type="module" src="/static/app.js"></script>
+</head>
+<body>
+  <header>
+    <div class="brand"><span class="mark" aria-hidden="true">АФ</span> Поймай мошенника</div>
+    <nav aria-label="Разделы">
+      <button id="queue-tab" aria-pressed="true">Очередь</button>
+      <button id="lab-tab" aria-pressed="false">Песочница</button>
+    </nav>
+    <span class="chip" id="model-status">CatBoost</span>
+  </header>
+  <main>
+    <p id="notice" role="status" aria-live="polite" hidden></p>
+    <section id="queue-panel">
+      <div class="intro">
+        <div><p class="eyebrow">АНАЛИЗ ОПЕРАЦИЙ</p><h1>Очередь проверок</h1>
+          <p>Оценка риска, причины срабатывания и история клиента на момент операции.</p></div>
+        <div class="actions">
+          <button id="demo" hidden>Данные хакатона</button>
+          <button id="upload-open" class="primary">Загрузить CSV</button>
+        </div>
+      </div>
+      <p id="empty" class="card">Загрузите справочник клиентов, историю и файл новых операций, чтобы начать анализ.</p>
+      <div id="results" hidden>
+        <div class="metrics">
+          <div class="card"><span>Операций в кадре</span><strong id="observed">—</strong></div>
+          <div class="card"><span>На проверку</span><strong id="alert-count">—</strong></div>
+          <div class="card"><span>С ограничениями оценки</span><strong id="limited-count">—</strong></div>
+        </div>
+        <div class="card controls">
+          <label>Порог риска <input id="threshold" type="number" min="0" max="1" step="any"></label>
+          <label><input id="review-only" type="checkbox"> Только на проверку</label>
+          <a id="export">Скачать весь анализ CSV</a>
+          <div class="replay">
+            <button id="play">Воспроизвести</button>
+            <label>Ход событий <input id="seen" type="range" min="0" max="1" value="1"></label>
+            <span id="cutoff"></span>
+          </div>
+        </div>
+        <div class="workspace">
+          <section class="card list">
+            <h2 id="dataset-title">Операции по риску</h2>
+            <div class="table-wrap"><table>
+              <thead><tr><th>Операция</th><th>Время</th><th>Сумма</th><th>Риск</th><th>Решение</th></tr></thead>
+              <tbody id="rows"></tbody>
+            </table></div>
+            <div class="pager">
+              <button id="previous">Назад</button><span id="page-status"></span><button id="next">Дальше</button>
+            </div>
+          </section>
+          <aside class="card detail" id="detail" aria-live="polite"><p>Выберите операцию для разбора.</p></aside>
+        </div>
+      </div>
+    </section>
+    <section id="lab-panel" hidden>
+      <div class="intro">
+        <div><p class="eyebrow">ЛАБОРАТОРИЯ</p><h1>Песочница</h1>
+          <p>Синтетические случаи для проверки поведения модели и объяснений.</p></div>
+        <button id="check-all" class="primary">Проверить все сценарии</button>
+      </div>
+      <label class="card amount">Сумма для эксперимента, ₽
+        <input id="scenario-amount" type="number" min="0.01" max="1000000000" step="0.01" placeholder="По сценарию">
+      </label>
+      <div id="scenario-results" class="card" hidden></div>
+      <div id="scenarios" class="scenario-grid"></div>
+    </section>
+  </main>
+  <dialog id="upload-dialog">
+    <form id="upload-form">
+      <h2>Загрузить данные</h2>
+      <p>CSV в UTF-8, до 10 МБ на файл.</p>
+      <label>Справочник клиентов <input name="clients" type="file" accept=".csv,text/csv" required></label>
+      <label>История операций <input name="history" type="file" accept=".csv,text/csv" required></label>
+      <label>Новые операции <input name="current" type="file" accept=".csv,text/csv" required></label>
+      <div class="actions"><button type="button" id="upload-close">Отмена</button><button class="primary">Запустить анализ</button></div>
+    </form>
+  </dialog>
+</body>
+</html>
