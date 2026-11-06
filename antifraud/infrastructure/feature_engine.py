@@ -34,6 +34,12 @@ class CausalFeatureEngine:
             warnings = []
             if operation.customer_id not in clients:
                 warnings.append("Клиент отсутствует в справочнике.")
+            else:
+                client = clients[operation.customer_id]
+                if client.monthly_income_rub is None:
+                    warnings.append("Доход клиента отсутствует.")
+                if client.registration_date is None:
+                    warnings.append("Дата регистрации клиента отсутствует.")
             if values["prior_count"] < 5:
                 warnings.append("Меньше пяти прошлых операций — индивидуальная оценка суммы ограничена.")
             if operation.balance_before_rub is None or operation.balance_before_rub == 0:

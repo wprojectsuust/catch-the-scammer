@@ -1,0 +1,1183 @@
+{
+  "purpose": "Synthetic mechanism checks; not a labelled quality benchmark.",
+  "model_sha256": "7cf1d28c0f1b0ba67bcab28e91f123d449753bf2e51290e3697294789e143d88",
+  "passed": true,
+  "scenarios": [
+    {
+      "scenario": "ordinary",
+      "title": "Обычная операция",
+      "description": "Привычная сумма, устройство и получатель.",
+      "passed": true,
+      "checks": {
+        "finite_score": true,
+        "causal_history": true,
+        "explanation_additivity": true,
+        "familiar_device": true
+      },
+      "assessment": {
+        "transaction_id": "DEMO-CURRENT",
+        "sender_account_id": "DEMO-A",
+        "recipient_account_id": "DEMO-B",
+        "customer_id": "DEMO-C",
+        "timestamp": "2026-11-10 12:00:00",
+        "amount_rub": 1200,
+        "balance_before_rub": 75000,
+        "transaction_type": "перевод",
+        "device_id": "DEMO-DEVICE",
+        "region": "Башкортостан",
+        "city": "Уфа",
+        "status": "исполнена",
+        "currency": "RUB",
+        "score": 0.002034740825798168,
+        "review": false,
+        "category": "routine",
+        "prior_count": 30,
+        "warnings": [],
+        "base_value": -6.117288847983088,
+        "contributions": [
+          {
+            "feature": "transaction_type",
+            "value": "перевод",
+            "impact": 0.7834875518409458,
+            "label": "Тип операции"
+          },
+          {
+            "feature": "amount_log",
+            "value": 7.0909098220799835,
+            "impact": -0.4992411716741836,
+            "label": "Сумма операции"
+          },
+          {
+            "feature": "prior_count",
+            "value": 30,
+            "impact": 0.2768625779653155,
+            "label": "Число прошлых операций"
+          },
+          {
+            "feature": "recipient_seen",
+            "value": 1,
+            "impact": 0.22758749385675167,
+            "label": "Получатель встречался ранее"
+          },
+          {
+            "feature": "geo_change",
+            "value": 0,
+            "impact": -0.22693462203078751,
+            "label": "Смена региона"
+          },
+          {
+            "feature": "hour_cos",
+            "value": -1.0,
+            "impact": 0.22400899142165337,
+            "label": "Время суток (cos)"
+          },
+          {
+            "feature": "device_seen",
+            "value": 1,
+            "impact": -0.2142265101485431,
+            "label": "Устройство встречалось ранее"
+          },
+          {
+            "feature": "balance_fraction",
+            "value": 0.016,
+            "impact": -0.19050630098600005,
+            "label": "Доля суммы в остатке"
+          },
+          {
+            "feature": "amount_robust_z",
+            "value": 0.0,
+            "impact": -0.17749112223913727,
+            "label": "Отклонение суммы от обычной"
+          },
+          {
+            "feature": "is_new_device",
+            "value": 0,
+            "impact": -0.15341393672222747,
+            "label": "Новое устройство"
+          },
+          {
+            "feature": "region_seen",
+            "value": 1,
+            "impact": -0.08215625135978102,
+            "label": "Регион встречался ранее"
+          },
+          {
+            "feature": "account_age_days",
+            "value": 400,
+            "impact": -0.07042001759922438,
+            "label": "Возраст счёта"
+          },
+          {
+            "feature": "city",
+            "value": "Уфа",
+            "impact": -0.0387882107195824,
+            "label": "Город"
+          },
+          {
+            "feature": "income_log",
+            "value": 11.082157933374816,
+            "impact": 0.03198702032680016,
+            "label": "Доход клиента"
+          },
+          {
+            "feature": "is_new_recipient",
+            "value": 0,
+            "impact": -0.022326224601331882,
+            "label": "Новый получатель"
+          },
+          {
+            "feature": "hour_sin",
+            "value": 1.2246467991473532e-16,
+            "impact": 0.021385057081671575,
+            "label": "Время суток (sin)"
+          },
+          {
+            "feature": "account_type",
+            "value": "дебетовый",
+            "impact": 0.019455212350929844,
+            "label": "Тип счёта"
+          },
+          {
+            "feature": "velocity_24h",
+            "value": 1,
+            "impact": 0.018030772838214127,
+            "label": "Операции за сутки"
+          },
+          {
+            "feature": "velocity_60m",
+            "value": 0,
+            "impact": -0.005180204061198417,
+            "label": "Операции за час"
+          },
+          {
+            "feature": "velocity_5m",
+            "value": 0,
+            "impact": -0.0024874338784763887,
+            "label": "Операции за 5 минут"
+          },
+          {
+            "feature": "client_category",
+            "value": "наёмный сотрудник",
+            "impact": 0.002208108548339076,
+            "label": "Категория клиента"
+          },
+          {
+            "feature": "region",
+            "value": "Башкортостан",
+            "impact": 9.805496772642245e-05,
+            "label": "Регион"
+          }
+        ]
+      }
+    },
+    {
+      "scenario": "large_purchase",
+      "title": "Крупная законная покупка",
+      "description": "Синтетическая законная покупка. Проверяем реакцию на аномальную сумму.",
+      "passed": true,
+      "checks": {
+        "finite_score": true,
+        "causal_history": true,
+        "explanation_additivity": true,
+        "unusual_amount": true
+      },
+      "assessment": {
+        "transaction_id": "DEMO-CURRENT",
+        "sender_account_id": "DEMO-A",
+        "recipient_account_id": "DEMO-B",
+        "customer_id": "DEMO-C",
+        "timestamp": "2026-11-10 12:00:00",
+        "amount_rub": 50000,
+        "balance_before_rub": 75000,
+        "transaction_type": "покупка",
+        "device_id": "DEMO-DEVICE",
+        "region": "Башкортостан",
+        "city": "Уфа",
+        "status": "исполнена",
+        "currency": "RUB",
+        "score": 0.015477895603986273,
+        "review": false,
+        "category": "routine",
+        "prior_count": 30,
+        "warnings": [],
+        "base_value": -6.117288847983088,
+        "contributions": [
+          {
+            "feature": "amount_robust_z",
+            "value": 14.91555384852121,
+            "impact": 1.5111920380204802,
+            "label": "Отклонение суммы от обычной"
+          },
+          {
+            "feature": "amount_log",
+            "value": 10.819798284210286,
+            "impact": 1.3089544012808587,
+            "label": "Сумма операции"
+          },
+          {
+            "feature": "transaction_type",
+            "value": "покупка",
+            "impact": -1.2296342043935728,
+            "label": "Тип операции"
+          },
+          {
+            "feature": "hour_cos",
+            "value": -1.0,
+            "impact": 0.4497143552422266,
+            "label": "Время суток (cos)"
+          },
+          {
+            "feature": "balance_fraction",
+            "value": 0.6666666666666666,
+            "impact": 0.3104387242026946,
+            "label": "Доля суммы в остатке"
+          },
+          {
+            "feature": "prior_count",
+            "value": 30,
+            "impact": 0.30186876689189845,
+            "label": "Число прошлых операций"
+          },
+          {
+            "feature": "device_seen",
+            "value": 1,
+            "impact": -0.24198639913185488,
+            "label": "Устройство встречалось ранее"
+          },
+          {
+            "feature": "geo_change",
+            "value": 0,
+            "impact": -0.2128186047433995,
+            "label": "Смена региона"
+          },
+          {
+            "feature": "is_new_device",
+            "value": 0,
+            "impact": -0.20146256840412774,
+            "label": "Новое устройство"
+          },
+          {
+            "feature": "recipient_seen",
+            "value": 1,
+            "impact": 0.1980044016996125,
+            "label": "Получатель встречался ранее"
+          },
+          {
+            "feature": "region_seen",
+            "value": 1,
+            "impact": -0.10222036048149542,
+            "label": "Регион встречался ранее"
+          },
+          {
+            "feature": "hour_sin",
+            "value": 1.2246467991473532e-16,
+            "impact": -0.07095928296057126,
+            "label": "Время суток (sin)"
+          },
+          {
+            "feature": "is_new_recipient",
+            "value": 0,
+            "impact": -0.022326224601331882,
+            "label": "Новый получатель"
+          },
+          {
+            "feature": "velocity_24h",
+            "value": 1,
+            "impact": 0.019242561224026736,
+            "label": "Операции за сутки"
+          },
+          {
+            "feature": "account_type",
+            "value": "дебетовый",
+            "impact": -0.01898168838685971,
+            "label": "Тип счёта"
+          },
+          {
+            "feature": "income_log",
+            "value": 11.082157933374816,
+            "impact": -0.012341179521307017,
+            "label": "Доход клиента"
+          },
+          {
+            "feature": "client_category",
+            "value": "наёмный сотрудник",
+            "impact": 0.01217800096281794,
+            "label": "Категория клиента"
+          },
+          {
+            "feature": "velocity_60m",
+            "value": 0,
+            "impact": -0.012165011987360542,
+            "label": "Операции за час"
+          },
+          {
+            "feature": "city",
+            "value": "Уфа",
+            "impact": -0.01093314757780856,
+            "label": "Город"
+          },
+          {
+            "feature": "account_age_days",
+            "value": 400,
+            "impact": -0.009448287182369173,
+            "label": "Возраст счёта"
+          },
+          {
+            "feature": "velocity_5m",
+            "value": 0,
+            "impact": -0.0018533230762094615,
+            "label": "Операции за 5 минут"
+          },
+          {
+            "feature": "region",
+            "value": "Башкортостан",
+            "impact": 8.24466968281905e-05,
+            "label": "Регион"
+          }
+        ]
+      }
+    },
+    {
+      "scenario": "burst",
+      "title": "Серия быстрых переводов",
+      "description": "Три перевода за предыдущие три минуты.",
+      "passed": true,
+      "checks": {
+        "finite_score": true,
+        "causal_history": true,
+        "explanation_additivity": true,
+        "velocity": true
+      },
+      "assessment": {
+        "transaction_id": "DEMO-CURRENT",
+        "sender_account_id": "DEMO-A",
+        "recipient_account_id": "DEMO-B",
+        "customer_id": "DEMO-C",
+        "timestamp": "2026-11-10 12:00:00",
+        "amount_rub": 1200,
+        "balance_before_rub": 75000,
+        "transaction_type": "перевод",
+        "device_id": "DEMO-DEVICE",
+        "region": "Башкортостан",
+        "city": "Уфа",
+        "status": "исполнена",
+        "currency": "RUB",
+        "score": 0.041903024667403484,
+        "review": false,
+        "category": "routine",
+        "prior_count": 33,
+        "warnings": [],
+        "base_value": -6.117288847983088,
+        "contributions": [
+          {
+            "feature": "velocity_5m",
+            "value": 3,
+            "impact": 1.5567495080877707,
+            "label": "Операции за 5 минут"
+          },
+          {
+            "feature": "velocity_60m",
+            "value": 3,
+            "impact": 0.7665387979782093,
+            "label": "Операции за час"
+          },
+          {
+            "feature": "transaction_type",
+            "value": "перевод",
+            "impact": 0.6491180005558355,
+            "label": "Тип операции"
+          },
+          {
+            "feature": "amount_log",
+            "value": 7.0909098220799835,
+            "impact": -0.32657872223072937,
+            "label": "Сумма операции"
+          },
+          {
+            "feature": "prior_count",
+            "value": 33,
+            "impact": 0.2744400222636197,
+            "label": "Число прошлых операций"
+          },
+          {
+            "feature": "hour_cos",
+            "value": -1.0,
+            "impact": 0.26787054310759933,
+            "label": "Время суток (cos)"
+          },
+          {
+            "feature": "velocity_24h",
+            "value": 4,
+            "impact": 0.23907072854007175,
+            "label": "Операции за сутки"
+          },
+          {
+            "feature": "recipient_seen",
+            "value": 1,
+            "impact": 0.22758749385675167,
+            "label": "Получатель встречался ранее"
+          },
+          {
+            "feature": "amount_robust_z",
+            "value": 0.0,
+            "impact": -0.1751799630375011,
+            "label": "Отклонение суммы от обычной"
+          },
+          {
+            "feature": "balance_fraction",
+            "value": 0.016,
+            "impact": -0.1414836360603778,
+            "label": "Доля суммы в остатке"
+          },
+          {
+            "feature": "geo_change",
+            "value": 0,
+            "impact": -0.11623572786612649,
+            "label": "Смена региона"
+          },
+          {
+            "feature": "is_new_device",
+            "value": 0,
+            "impact": -0.11591951181186319,
+            "label": "Новое устройство"
+          },
+          {
+            "feature": "device_seen",
+            "value": 1,
+            "impact": -0.06342673278219753,
+            "label": "Устройство встречалось ранее"
+          },
+          {
+            "feature": "account_age_days",
+            "value": 400,
+            "impact": -0.05668633968195565,
+            "label": "Возраст счёта"
+          },
+          {
+            "feature": "region_seen",
+            "value": 1,
+            "impact": -0.05341833002370095,
+            "label": "Регион встречался ранее"
+          },
+          {
+            "feature": "income_log",
+            "value": 11.082157933374816,
+            "impact": 0.049119824796065,
+            "label": "Доход клиента"
+          },
+          {
+            "feature": "city",
+            "value": "Уфа",
+            "impact": -0.03666492727542448,
+            "label": "Город"
+          },
+          {
+            "feature": "hour_sin",
+            "value": 1.2246467991473532e-16,
+            "impact": 0.03230287979368911,
+            "label": "Время суток (sin)"
+          },
+          {
+            "feature": "account_type",
+            "value": "дебетовый",
+            "impact": 0.028709141653609518,
+            "label": "Тип счёта"
+          },
+          {
+            "feature": "is_new_recipient",
+            "value": 0,
+            "impact": -0.022326224601331882,
+            "label": "Новый получатель"
+          },
+          {
+            "feature": "client_category",
+            "value": "наёмный сотрудник",
+            "impact": 0.004111858155347548,
+            "label": "Категория клиента"
+          },
+          {
+            "feature": "region",
+            "value": "Башкортостан",
+            "impact": -8.230539200576656e-07,
+            "label": "Регион"
+          }
+        ]
+      }
+    },
+    {
+      "scenario": "new_device",
+      "title": "Новое устройство и получатель",
+      "description": "Два признака новизны появляются одновременно.",
+      "passed": true,
+      "checks": {
+        "finite_score": true,
+        "causal_history": true,
+        "explanation_additivity": true,
+        "novelty": true
+      },
+      "assessment": {
+        "transaction_id": "DEMO-CURRENT",
+        "sender_account_id": "DEMO-A",
+        "recipient_account_id": "NEW-RECIPIENT",
+        "customer_id": "DEMO-C",
+        "timestamp": "2026-11-10 12:00:00",
+        "amount_rub": 1200,
+        "balance_before_rub": 75000,
+        "transaction_type": "перевод",
+        "device_id": "NEW-DEVICE",
+        "region": "Башкортостан",
+        "city": "Уфа",
+        "status": "исполнена",
+        "currency": "RUB",
+        "score": 0.02641487990806975,
+        "review": false,
+        "category": "routine",
+        "prior_count": 30,
+        "warnings": [],
+        "base_value": -6.117288847983088,
+        "contributions": [
+          {
+            "feature": "device_seen",
+            "value": 0,
+            "impact": 1.417960280178917,
+            "label": "Устройство встречалось ранее"
+          },
+          {
+            "feature": "transaction_type",
+            "value": "перевод",
+            "impact": 0.9049396826561474,
+            "label": "Тип операции"
+          },
+          {
+            "feature": "is_new_device",
+            "value": 1,
+            "impact": 0.8773856968871191,
+            "label": "Новое устройство"
+          },
+          {
+            "feature": "amount_log",
+            "value": 7.0909098220799835,
+            "impact": -0.5013552283466968,
+            "label": "Сумма операции"
+          },
+          {
+            "feature": "prior_count",
+            "value": 30,
+            "impact": 0.4561153910833119,
+            "label": "Число прошлых операций"
+          },
+          {
+            "feature": "geo_change",
+            "value": 0,
+            "impact": -0.23574315512984836,
+            "label": "Смена региона"
+          },
+          {
+            "feature": "balance_fraction",
+            "value": 0.016,
+            "impact": -0.22018198270943637,
+            "label": "Доля суммы в остатке"
+          },
+          {
+            "feature": "amount_robust_z",
+            "value": 0.0,
+            "impact": -0.19601883405677625,
+            "label": "Отклонение суммы от обычной"
+          },
+          {
+            "feature": "region_seen",
+            "value": 1,
+            "impact": -0.0783817671613628,
+            "label": "Регион встречался ранее"
+          },
+          {
+            "feature": "income_log",
+            "value": 11.082157933374816,
+            "impact": 0.06873220466613542,
+            "label": "Доход клиента"
+          },
+          {
+            "feature": "account_age_days",
+            "value": 400,
+            "impact": -0.04784529505517103,
+            "label": "Возраст счёта"
+          },
+          {
+            "feature": "city",
+            "value": "Уфа",
+            "impact": -0.0387882107195824,
+            "label": "Город"
+          },
+          {
+            "feature": "hour_cos",
+            "value": -1.0,
+            "impact": 0.038100323968880315,
+            "label": "Время суток (cos)"
+          },
+          {
+            "feature": "velocity_24h",
+            "value": 1,
+            "impact": 0.020963209679698582,
+            "label": "Операции за сутки"
+          },
+          {
+            "feature": "account_type",
+            "value": "дебетовый",
+            "impact": 0.019102202304903632,
+            "label": "Тип счёта"
+          },
+          {
+            "feature": "client_category",
+            "value": "наёмный сотрудник",
+            "impact": 0.016416630514454016,
+            "label": "Категория клиента"
+          },
+          {
+            "feature": "hour_sin",
+            "value": 1.2246467991473532e-16,
+            "impact": 0.009150188033800053,
+            "label": "Время суток (sin)"
+          },
+          {
+            "feature": "velocity_60m",
+            "value": 0,
+            "impact": -0.0009524868156207974,
+            "label": "Операции за час"
+          },
+          {
+            "feature": "velocity_5m",
+            "value": 0,
+            "impact": 0.0009442168495804287,
+            "label": "Операции за 5 минут"
+          },
+          {
+            "feature": "recipient_seen",
+            "value": 0,
+            "impact": -0.0004703062539585155,
+            "label": "Получатель встречался ранее"
+          },
+          {
+            "feature": "region",
+            "value": "Башкортостан",
+            "impact": 9.805496772642245e-05,
+            "label": "Регион"
+          },
+          {
+            "feature": "is_new_recipient",
+            "value": 1,
+            "impact": 6.0258526237164824e-05,
+            "label": "Новый получатель"
+          }
+        ]
+      }
+    },
+    {
+      "scenario": "geography",
+      "title": "Смена региона",
+      "description": "Географический контекст ограничен регионом и городом.",
+      "passed": true,
+      "checks": {
+        "finite_score": true,
+        "causal_history": true,
+        "explanation_additivity": true,
+        "geography": true
+      },
+      "assessment": {
+        "transaction_id": "DEMO-CURRENT",
+        "sender_account_id": "DEMO-A",
+        "recipient_account_id": "DEMO-B",
+        "customer_id": "DEMO-C",
+        "timestamp": "2026-11-10 12:00:00",
+        "amount_rub": 1200,
+        "balance_before_rub": 75000,
+        "transaction_type": "перевод",
+        "device_id": "DEMO-DEVICE",
+        "region": "Москва",
+        "city": "Москва",
+        "status": "исполнена",
+        "currency": "RUB",
+        "score": 0.017349626361521295,
+        "review": false,
+        "category": "routine",
+        "prior_count": 30,
+        "warnings": [],
+        "base_value": -6.117288847983088,
+        "contributions": [
+          {
+            "feature": "geo_change",
+            "value": 1,
+            "impact": 1.2134011302991246,
+            "label": "Смена региона"
+          },
+          {
+            "feature": "transaction_type",
+            "value": "перевод",
+            "impact": 0.8377027530819263,
+            "label": "Тип операции"
+          },
+          {
+            "feature": "region_seen",
+            "value": 0,
+            "impact": 0.5585642390521041,
+            "label": "Регион встречался ранее"
+          },
+          {
+            "feature": "amount_log",
+            "value": 7.0909098220799835,
+            "impact": -0.49721101015157415,
+            "label": "Сумма операции"
+          },
+          {
+            "feature": "prior_count",
+            "value": 30,
+            "impact": 0.3090242688411077,
+            "label": "Число прошлых операций"
+          },
+          {
+            "feature": "recipient_seen",
+            "value": 1,
+            "impact": 0.22758749385675167,
+            "label": "Получатель встречался ранее"
+          },
+          {
+            "feature": "device_seen",
+            "value": 1,
+            "impact": -0.22096794084281893,
+            "label": "Устройство встречалось ранее"
+          },
+          {
+            "feature": "balance_fraction",
+            "value": 0.016,
+            "impact": -0.20665409314002534,
+            "label": "Доля суммы в остатке"
+          },
+          {
+            "feature": "amount_robust_z",
+            "value": 0.0,
+            "impact": -0.19084698363578995,
+            "label": "Отклонение суммы от обычной"
+          },
+          {
+            "feature": "is_new_device",
+            "value": 0,
+            "impact": -0.15687717356742586,
+            "label": "Новое устройство"
+          },
+          {
+            "feature": "hour_cos",
+            "value": -1.0,
+            "impact": 0.15596549449020453,
+            "label": "Время суток (cos)"
+          },
+          {
+            "feature": "hour_sin",
+            "value": 1.2246467991473532e-16,
+            "impact": 0.09221612804691336,
+            "label": "Время суток (sin)"
+          },
+          {
+            "feature": "city",
+            "value": "Москва",
+            "impact": -0.0387882107195824,
+            "label": "Город"
+          },
+          {
+            "feature": "income_log",
+            "value": 11.082157933374816,
+            "impact": 0.029613838945745784,
+            "label": "Доход клиента"
+          },
+          {
+            "feature": "account_age_days",
+            "value": 400,
+            "impact": -0.022449616971416776,
+            "label": "Возраст счёта"
+          },
+          {
+            "feature": "is_new_recipient",
+            "value": 0,
+            "impact": -0.022326224601331882,
+            "label": "Новый получатель"
+          },
+          {
+            "feature": "account_type",
+            "value": "дебетовый",
+            "impact": 0.0054393072068012905,
+            "label": "Тип счёта"
+          },
+          {
+            "feature": "velocity_24h",
+            "value": 1,
+            "impact": 0.005358548708489723,
+            "label": "Операции за сутки"
+          },
+          {
+            "feature": "velocity_5m",
+            "value": 0,
+            "impact": 0.0048518203466306805,
+            "label": "Операции за 5 минут"
+          },
+          {
+            "feature": "client_category",
+            "value": "наёмный сотрудник",
+            "impact": -0.0037682936127788925,
+            "label": "Категория клиента"
+          },
+          {
+            "feature": "velocity_60m",
+            "value": 0,
+            "impact": 0.0006618527984748339,
+            "label": "Операции за час"
+          },
+          {
+            "feature": "region",
+            "value": "Москва",
+            "impact": 0.00010910627204011053,
+            "label": "Регион"
+          }
+        ]
+      }
+    },
+    {
+      "scenario": "new_client",
+      "title": "Новый клиент",
+      "description": "Оценка без истории операций.",
+      "passed": true,
+      "checks": {
+        "finite_score": true,
+        "causal_history": true,
+        "explanation_additivity": true,
+        "limitations_visible": true
+      },
+      "assessment": {
+        "transaction_id": "DEMO-CURRENT",
+        "sender_account_id": "DEMO-A",
+        "recipient_account_id": "DEMO-B",
+        "customer_id": "DEMO-C",
+        "timestamp": "2026-11-10 12:00:00",
+        "amount_rub": 1200,
+        "balance_before_rub": 75000,
+        "transaction_type": "перевод",
+        "device_id": "DEMO-DEVICE",
+        "region": "Башкортостан",
+        "city": "Уфа",
+        "status": "исполнена",
+        "currency": "RUB",
+        "score": 0.007165474147193361,
+        "review": false,
+        "category": "routine",
+        "prior_count": 0,
+        "warnings": [
+          "Меньше пяти прошлых операций — индивидуальная оценка суммы ограничена."
+        ],
+        "base_value": -6.117288847983088,
+        "contributions": [
+          {
+            "feature": "device_seen",
+            "value": 0,
+            "impact": 1.0963127781803492,
+            "label": "Устройство встречалось ранее"
+          },
+          {
+            "feature": "transaction_type",
+            "value": "перевод",
+            "impact": 0.8102878089636593,
+            "label": "Тип операции"
+          },
+          {
+            "feature": "amount_log",
+            "value": 7.0909098220799835,
+            "impact": -0.5517154647152874,
+            "label": "Сумма операции"
+          },
+          {
+            "feature": "is_new_device",
+            "value": 1,
+            "impact": 0.485667662850311,
+            "label": "Новое устройство"
+          },
+          {
+            "feature": "geo_change",
+            "value": 0,
+            "impact": -0.23705337308203492,
+            "label": "Смена региона"
+          },
+          {
+            "feature": "balance_fraction",
+            "value": 0.016,
+            "impact": -0.22577762226146697,
+            "label": "Доля суммы в остатке"
+          },
+          {
+            "feature": "amount_robust_z",
+            "value": 0.0,
+            "impact": -0.20509262115166216,
+            "label": "Отклонение суммы от обычной"
+          },
+          {
+            "feature": "account_age_days",
+            "value": 0,
+            "impact": -0.1795761415011877,
+            "label": "Возраст счёта"
+          },
+          {
+            "feature": "region_seen",
+            "value": 0,
+            "impact": 0.1670695633415778,
+            "label": "Регион встречался ранее"
+          },
+          {
+            "feature": "hour_cos",
+            "value": -1.0,
+            "impact": -0.07827182896432854,
+            "label": "Время суток (cos)"
+          },
+          {
+            "feature": "hour_sin",
+            "value": 1.2246467991473532e-16,
+            "impact": 0.0659241024729599,
+            "label": "Время суток (sin)"
+          },
+          {
+            "feature": "city",
+            "value": "Уфа",
+            "impact": -0.04935506119196084,
+            "label": "Город"
+          },
+          {
+            "feature": "income_log",
+            "value": 11.082157933374816,
+            "impact": 0.04740495251212798,
+            "label": "Доход клиента"
+          },
+          {
+            "feature": "prior_count",
+            "value": 0,
+            "impact": 0.04434589545486732,
+            "label": "Число прошлых операций"
+          },
+          {
+            "feature": "velocity_24h",
+            "value": 0,
+            "impact": -0.012334805711203297,
+            "label": "Операции за сутки"
+          },
+          {
+            "feature": "client_category",
+            "value": "наёмный сотрудник",
+            "impact": 0.007638875308599546,
+            "label": "Категория клиента"
+          },
+          {
+            "feature": "account_type",
+            "value": "дебетовый",
+            "impact": 0.001500436880982867,
+            "label": "Тип счёта"
+          },
+          {
+            "feature": "velocity_60m",
+            "value": 0,
+            "impact": -0.0009288227645464158,
+            "label": "Операции за час"
+          },
+          {
+            "feature": "recipient_seen",
+            "value": 0,
+            "impact": -0.0004703062539585155,
+            "label": "Получатель встречался ранее"
+          },
+          {
+            "feature": "velocity_5m",
+            "value": 0,
+            "impact": 0.0004639357978461209,
+            "label": "Операции за 5 минут"
+          },
+          {
+            "feature": "region",
+            "value": "Башкортостан",
+            "impact": -8.233944496946076e-05,
+            "label": "Регион"
+          },
+          {
+            "feature": "is_new_recipient",
+            "value": 1,
+            "impact": 4.144828871665067e-05,
+            "label": "Новый получатель"
+          }
+        ]
+      }
+    },
+    {
+      "scenario": "missing",
+      "title": "Неполные данные",
+      "description": "Отсутствуют устройство, география и остаток.",
+      "passed": true,
+      "checks": {
+        "finite_score": true,
+        "causal_history": true,
+        "explanation_additivity": true,
+        "limitations_visible": true
+      },
+      "assessment": {
+        "transaction_id": "DEMO-CURRENT",
+        "sender_account_id": "DEMO-A",
+        "recipient_account_id": "DEMO-B",
+        "customer_id": "DEMO-C",
+        "timestamp": "2026-11-10 12:00:00",
+        "amount_rub": 1200,
+        "balance_before_rub": null,
+        "transaction_type": "перевод",
+        "device_id": null,
+        "region": null,
+        "city": null,
+        "status": "исполнена",
+        "currency": "RUB",
+        "score": 0.014481932482643687,
+        "review": false,
+        "category": "routine",
+        "prior_count": 30,
+        "warnings": [
+          "Доля списания в остатке недоступна.",
+          "Отсутствует устройство.",
+          "Отсутствует регион.",
+          "Отсутствует город."
+        ],
+        "base_value": -6.117288847983088,
+        "contributions": [
+          {
+            "feature": "device_seen",
+            "value": 0,
+            "impact": 1.2585155360692202,
+            "label": "Устройство встречалось ранее"
+          },
+          {
+            "feature": "transaction_type",
+            "value": "перевод",
+            "impact": 0.8528882270107145,
+            "label": "Тип операции"
+          },
+          {
+            "feature": "amount_log",
+            "value": 7.0909098220799835,
+            "impact": -0.4796196051453697,
+            "label": "Сумма операции"
+          },
+          {
+            "feature": "prior_count",
+            "value": 30,
+            "impact": 0.47525712226817984,
+            "label": "Число прошлых операций"
+          },
+          {
+            "feature": "region_seen",
+            "value": 0,
+            "impact": 0.428306707349889,
+            "label": "Регион встречался ранее"
+          },
+          {
+            "feature": "geo_change",
+            "value": 0,
+            "impact": -0.23352509553769263,
+            "label": "Смена региона"
+          },
+          {
+            "feature": "balance_fraction",
+            "value": null,
+            "impact": -0.22307306450509143,
+            "label": "Доля суммы в остатке"
+          },
+          {
+            "feature": "amount_robust_z",
+            "value": 0.0,
+            "impact": -0.21618451944923114,
+            "label": "Отклонение суммы от обычной"
+          },
+          {
+            "feature": "recipient_seen",
+            "value": 1,
+            "impact": 0.15815285739872217,
+            "label": "Получатель встречался ранее"
+          },
+          {
+            "feature": "is_new_device",
+            "value": null,
+            "impact": -0.13826365906506588,
+            "label": "Новое устройство"
+          },
+          {
+            "feature": "account_age_days",
+            "value": 400,
+            "impact": -0.054970675185891466,
+            "label": "Возраст счёта"
+          },
+          {
+            "feature": "income_log",
+            "value": 11.082157933374816,
+            "impact": 0.045027203237071156,
+            "label": "Доход клиента"
+          },
+          {
+            "feature": "hour_sin",
+            "value": 1.2246467991473532e-16,
+            "impact": 0.029791897855670754,
+            "label": "Время суток (sin)"
+          },
+          {
+            "feature": "is_new_recipient",
+            "value": 0,
+            "impact": -0.022326224601331882,
+            "label": "Новый получатель"
+          },
+          {
+            "feature": "hour_cos",
+            "value": -1.0,
+            "impact": 0.019527331466177647,
+            "label": "Время суток (cos)"
+          },
+          {
+            "feature": "region",
+            "value": null,
+            "impact": -0.018464095131984187,
+            "label": "Регион"
+          },
+          {
+            "feature": "city",
+            "value": null,
+            "impact": -0.01534973711711478,
+            "label": "Город"
+          },
+          {
+            "feature": "client_category",
+            "value": "наёмный сотрудник",
+            "impact": 0.014227131893788944,
+            "label": "Категория клиента"
+          },
+          {
+            "feature": "velocity_5m",
+            "value": 0,
+            "impact": 0.00663579105505023,
+            "label": "Операции за 5 минут"
+          },
+          {
+            "feature": "velocity_24h",
+            "value": 1,
+            "impact": 0.005802455450750665,
+            "label": "Операции за сутки"
+          },
+          {
+            "feature": "account_type",
+            "value": "дебетовый",
+            "impact": 0.005074688202044642,
+            "label": "Тип счёта"
+          },
+          {
+            "feature": "velocity_60m",
+            "value": 0,
+            "impact": -0.0004070485122299452,
+            "label": "Операции за час"
+          }
+        ]
+      }
+    }
+  ]
+}
