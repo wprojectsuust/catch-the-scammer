@@ -1,9 +1,3 @@
 __pycache__/
 .venv/
-catboost_info/
-data/
-*.csv
-models/
-runtime/
 .pytest_cache/
-*.egg-info/

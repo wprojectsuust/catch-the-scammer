@@ -1,0 +1,60 @@
+{
+  "available_from": "2026-10-01T00:00:00",
+  "default_threshold": 0.279152259960531,
+  "thresholds": {
+    "0.005": 0.279152259960531,
+    "0.01": 0.1602594753453993,
+    "0.02": 0.08995262101814426
+  },
+  "settings": {
+    "model": "CatBoost",
+    "params": {
+      "learning_rate": 0.05,
+      "l2_leaf_reg": 10.0,
+      "loss_function": "Logloss",
+      "random_seed": 42,
+      "thread_count": 2,
+      "verbose": false,
+      "allow_writing_files": false,
+      "depth": 5,
+      "iterations": 350
+    },
+    "validation_ap": 0.676026639670491,
+    "validation_comparison": [
+      {
+        "params": {
+          "depth": 3,
+          "iterations": 200
+        },
+        "validation_ap": 0.6614541343134299
+      },
+      {
+        "params": {
+          "depth": 4,
+          "iterations": 350
+        },
+        "validation_ap": 0.6698660639312252
+      },
+      {
+        "params": {
+          "depth": 5,
+          "iterations": 350
+        },
+        "validation_ap": 0.676026639670491
+      }
+    ]
+  },
+  "source_sha256": {
+    "clients.csv": "0be1022b422d54998f6ed228de9a553059845adaade25fc09ed04d6666d165e8",
+    "transactions_history.csv": "a2fa5402b952e52277f815195fa529ad4c0c398ba0449338e7a80c39d0f13693"
+  },
+  "protocol": "Train August, select parameters and thresholds September; reconstructed novelty flags.",
+  "warnings": [],
+  "schema_version": 1,
+  "model_sha256": "7cf1d28c0f1b0ba67bcab28e91f123d449753bf2e51290e3697294789e143d88",
+  "feature_sources": {
+    "temporal.py": "b387eb895f76386dd513aa8c814a5e9261fa9d5cf85ed8191dab9f1b7d0f4ea8",
+    "feature_engine.py": "c84bb1b30b1a76a088da1520777e928e3a3068e19a27304da3ddc8c666fb94fe",
+    "tabular_model.py": "6b57aa7e5a4ba039a0b140c5b22a7535d879b707eaf84036d5bc821afd120cdb"
+  }
+}
